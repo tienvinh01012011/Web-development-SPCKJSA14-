@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập · Vnews</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-panel">
+        <div class="brand-mark">VNEWS<span>.</span></div>
+
+        <h1>Đăng nhập</h1>
+        <p class="subtitle">Nhập thông tin tài khoản để tiếp tục theo dõi tin tức mới nhất.</p>
+
+        <form id="loginForm" novalidate>
+            <div class="field">
+                <label for="email">Email hoặc tên đăng nhập</label>
+                <input type="text" id="email" name="email" placeholder="Không được đặt trùng tên" autocomplete="username" required>
+            </div>
+
+            <div class="field">
+                <label for="password">Mật khẩu</label>
+                <div class="password-row">
+                    <input type="password" id="password" name="password" placeholder="••••••••"
+                        autocomplete="current-password" required>
+                    <button type="button" class="toggle-visibility" id="toggleVisibility"
+                        aria-pressed="false">Hiện</button>
+                </div>
+            </div>
+
+            <div class="row-between">
+                <label class="remember">
+                    <input type="checkbox" name="remember">
+                    Ghi nhớ đăng nhập
+                </label>
+                <a href="#" class="link">Quên mật khẩu?</a>
+            </div>
+
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+            <button type="submit" class="submit">Đăng nhập</button>
+        </form>
+
+        <div class="divider">hoặc</div>
+        <p class="signup-hint">Chưa có tài khoản? <a href="#" class="link">Đăng ký ngay</a></p>
+    </div>
+
+    <div class="bg-stripes">
+        <div class="brand-plaque">
+            Vnews
+            <span class="headline">Tin tức cập nhật từng phút, mọi lúc mọi nơi</span>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const status = document.getElementById('formStatus');
+        const toggleBtn = document.getElementById('toggleVisibility');
+        const passwordInput = document.getElementById('password');
+
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = passwordInput.type === 'password';
+            passwordInput.type = isHidden ? 'text' : 'password';
+            toggleBtn.textContent = isHidden ? 'Ẩn' : 'Hiện';
+            toggleBtn.setAttribute('aria-pressed', String(isHidden));
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = form.email.value.trim();
+            const password = form.password.value;
+
+            if (!email || !password) {
+                status.textContent = 'Vui lòng nhập đầy đủ email và mật khẩu.';
+                return;
+            }
+
+            // TODO: thay đoạn dưới bằng lệnh gọi API đăng nhập thật của bạn
+            status.textContent = 'Đang xử lý đăng nhập…';
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </div>
+
+    <div class="barlg">
+        <h1 class="col-1">Login</h1>
+        <div class="accbar">
+            <p class="inp">Enter your acc</p>
+        </div>
+        <div class="passbar">
+            <p class="inp">Enter your pass</p>
+        </div>
+
+    </div>
+</body> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    
+    <div class="bg">
+        <p>abc</p>
+    </div>
+    
+    <div></div>
+
+</body>
+</html> -->
